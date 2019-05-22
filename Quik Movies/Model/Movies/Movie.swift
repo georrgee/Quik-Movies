@@ -31,4 +31,19 @@ struct Movie {
         return lhs.id == rhs.id
     }
     
+    var genres: String {
+        
+        let matchedGenres: [Genre]?  = GenresList.shared?.filter { genre_ids.contains($0.id) }
+        let genreNames               = matchedGenres?.map{ $0.name}
+        let list                     = genreNames?.joined(separator: ", ")
+        
+        return list ?? "Unknown"
+    }
+    
+    var cast:                 [CastMember]?
+    var directors:            String?
+    var productionCompanies:  String?
+    var mpaaRating:           String?
+    var length:               String?
+    
 }
