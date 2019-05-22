@@ -7,7 +7,7 @@
 import Foundation
 
 let apiKey  = "f2448e7d924f45f280a5db37ec9619b1"
-let baseURL = "https://api.themoviedb.org/3/" // double check later for: org/3/ <--- 3
+let baseURLPath = "https://api.themoviedb.org/3/" // double check later for: org/3/ <--- 3
 
 enum Country: String {
     case USA = "US"

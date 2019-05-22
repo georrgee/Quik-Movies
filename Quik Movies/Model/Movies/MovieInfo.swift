@@ -7,41 +7,41 @@
 
 import Foundation
 
-struct MovieInfo {
+struct MovieInfo: Decodable {
     let credits: Credits
     let productionCompanies: [ProductionCompany]
     let releaseDates: ReleaseDates
     let runtime: Int?
 }
 
-struct Credits {
+struct Credits: Decodable {
     let cast: [CastMember]
     let crew: [CrewMember]
 }
 
-struct CastMember {
+struct CastMember: Decodable {
     let name:        String
     let profilePath: String?
 }
 
-struct CrewMember {
+struct CrewMember: Decodable {
     let name:   String
     let job:    String
 }
 
-struct ProductionCompany {
+struct ProductionCompany: Decodable {
     let name: String
 }
 
-struct ReleaseDates {
+struct ReleaseDates: Decodable {
     let results: [Certification]
 }
 
-struct Certification {
+struct Certification: Decodable {
     let releaseDates: [RatingDetails]
     let iso31661: String
 }
 
-struct RatingDetails {
+struct RatingDetails: Decodable {
     let certification: String
 }
