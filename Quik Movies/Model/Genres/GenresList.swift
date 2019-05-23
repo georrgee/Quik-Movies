@@ -8,9 +8,27 @@
 
 import Foundation
 
-struct GenresList {
+struct GenresList: Decodable {
     
     static var shared: [Genre]? = nil    
-    var genres: [Genre]
+    var genres:        [Genre]
+    
+    func initWithData(data: Data) -> GenresList? {
+        
+        do {
+            return try JSONDecoder().decode(GenresList.self, from: data)
+        } catch {
+            print("Genre List Decoding Failure")
+            return nil
+        }
+    }
+    
+    func setGenreListWith(list: GenresList) {
+        GenresList.shared = list.genres
+    }
+    
+    func isListEmpty() -> Bool {
+        return GenresList.shared != nil
+    }
 
 }
